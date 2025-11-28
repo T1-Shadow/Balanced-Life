@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar class="fondo2" style="color: #fff;">
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Tareas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="agregar-box">
+    <ion-input 
+      placeholder="Nueva tarea..."
+      [(ngModel)]="nuevaTarea"
+      fill="outline"
+      class="input-tarea">
+    </ion-input>
+
+    <ion-button expand="block" (click)="agregarTarea()">
+      Añadir
+    </ion-button>
+  </div>
+
+  <ion-list>
+    <ion-item *ngFor="let t of tareas" class="tarea-item">
+      <ion-checkbox 
+        slot="start" 
+        (ionChange)="completarTarea(t)">
+      </ion-checkbox>
+
+      <ion-label>{{ t.texto }}</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-accordion-group expand="inset" class="historial-group">
+    <ion-accordion value="historial">
+
+      <ion-item slot="header">
+        <ion-label>Historial de tareas completadas</ion-label>
+      </ion-item>
+
+      <div slot="content" class="historial-content">
+        <ion-list>
+          <ion-item *ngFor="let h of historial">
+            <ion-label>
+              <b>{{ h.texto }}</b>
+              <p>{{ h.fecha }}</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </div>
+
+    </ion-accordion>
+  </ion-accordion-group>
+</ion-content>

@@ -1,0 +1,57 @@
+.agregar-box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.zona-item {
+    border-radius: 12px;
+    margin-bottom: 8px;
+    --background: #f7f7f7;
+}
+
+.historial-group {
+    margin-top: 20px;
+}
+
+.historial-content {
+    padding: 10px;
+    background: #fafafa;
+}
+
+.completada {
+    opacity: 0.6;
+    --background: #e3ffe3;
+}
+
+.completada ion-label h2 {
+    text-decoration: line-through;
+}
+
+.btn-limpieza {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background-color: #07615c;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.2s;
+}
+
+.btn-hoy {
+    padding: 10px;
+    border: none;
+    border-radius: 12px;
+    background-color: #07615c;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.2s;
+}

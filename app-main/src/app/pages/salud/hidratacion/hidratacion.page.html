@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar class="fondo2" style="color: #fff;">
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Hidratación</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="card-meta">
+    <h2>Meta diaria</h2>
+    <p>{{ meta }} vasos</p>
+    <ion-range min="4" max="20" step="1" [(ngModel)]="meta" (ionChange)="actualizarMeta()">
+      <ion-label slot="start">4</ion-label>
+      <ion-label slot="end">20</ion-label>
+    </ion-range>
+  </div>
+
+  <h3 class="section-title">Tu progreso hoy</h3>
+
+  <div class="gotas-grid">
+    <div *ngFor="let g of gotasArray; let i = index"
+          class="gota"
+          (click)="toggleGota(i)">
+      <ion-icon [name]="i < hidratado ? 'water' : 'water-outline'"></ion-icon>
+    </div>
+  </div>
+
+  <h3 class="section-title">Recordatorios</h3>
+
+  <ion-item>
+    <ion-label>Recordar cada</ion-label>
+    <ion-select [(ngModel)]="intervalo" (ionChange)="programarRecordatorios()">
+      <ion-select-option value="30">30 min</ion-select-option>
+      <ion-select-option value="60">1 hora</ion-select-option>
+      <ion-select-option value="90">1.5 horas</ion-select-option>
+      <ion-select-option value="120">2 horas</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <h3 class="section-title">Modo noche</h3>
+
+  <ion-item>
+    <ion-label>Activar modo noche</ion-label>
+    <ion-toggle [(ngModel)]="modoNoche" (ionChange)="guardar()"></ion-toggle>
+  </ion-item>
+</ion-content>

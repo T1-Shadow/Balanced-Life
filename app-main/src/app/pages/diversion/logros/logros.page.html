@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar class="fondo2" style="color: #fff;">
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Logros</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h2 style="margin-top: 25px;">Logros de Hidratación</h2>
+  <ion-item>
+    <ion-label>
+      <h2>Días hidratado correctamente</h2>
+      <p>{{ diasHidratacion }} / {{ metaAnual }} días</p>
+      <p>Progreso anual: {{ progresoHidratacion() | number:'1.0-1' }}%</p>
+    </ion-label>
+  </ion-item>
+</ion-content>
+

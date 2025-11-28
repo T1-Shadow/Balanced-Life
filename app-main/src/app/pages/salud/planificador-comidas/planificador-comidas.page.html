@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar class="fondo2" style="color: #fff;">
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Planificador de Comidas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-select [(ngModel)]="diaSeleccionado"
+              (ionChange)="cargarDelDia()"
+              interface="alert">
+    <ion-select-option *ngFor="let d of dias" [value]="d">
+      {{ d | titlecase }}
+    </ion-select-option>
+  </ion-select>
+  
+  <div class="form-box">
+    <label>Desayuno</label>
+    <ion-input fill="outline" [(ngModel)]="desayuno"></ion-input>
+
+    <label>Almuerzo</label>
+    <ion-input fill="outline" [(ngModel)]="almuerzo"></ion-input>
+
+    <label>Cena</label>
+    <ion-input fill="outline" [(ngModel)]="cena"></ion-input>
+  </div>
+
+  <button class="btn-guardar" (click)="guardar()">Guardar</button>
+
+  <h2 class="titulo-semana">Plan Semanal</h2>
+
+  <ion-list style="margin-bottom: 45px;">
+    <ion-card *ngFor="let d of dias; trackBy: trackDia" class="card-dia">
+      <ion-card-header>
+        <ion-card-title>{{ d | titlecase }}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <div class="fila-comida">
+          <ion-icon name="sunny-outline"></ion-icon>
+          <span><b>Desayuno:</b> {{ plan[d]?.desayuno || '—' }}</span>
+        </div>
+
+        <div class="fila-comida">
+          <ion-icon name="restaurant-outline"></ion-icon>
+          <span><b>Almuerzo:</b> {{ plan[d]?.almuerzo || '—' }}</span>
+        </div>
+
+        <div class="fila-comida">
+          <ion-icon name="moon-outline"></ion-icon>
+          <span><b>Cena:</b> {{ plan[d]?.cena || '—' }}</span>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+</ion-content>

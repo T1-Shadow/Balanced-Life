@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar class="fondo2" style="color: #fff;">
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Recetas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h2>Ingredientes</h2>
+
+  <div class="add-box">
+    <ion-input
+      placeholder="Agregar ingrediente..."
+      [(ngModel)]="nuevoIngrediente">
+    </ion-input>
+
+    <button class="btn-add" (click)="agregarIngrediente()">
+      Añadir
+    </button>
+  </div>
+
+  <div class="chips">
+    <ion-chip *ngFor="let ing of ingredientes; let i = index" class="chip-item">
+      <span>{{ ing }}</span>
+
+      <ion-icon 
+        name="close-circle-outline"
+        class="delete-icon"
+        (click)="eliminarIngrediente(i)">
+      </ion-icon>
+    </ion-chip>
+  </div>
+
+  <button class="btn-receta" (click)="generarRecetaIA()">
+    Sugerir receta con IA
+  </button>
+
+  <ion-card *ngIf="recetaGenerada" class="receta-card">
+    <ion-card-content>
+      <markdown [data]="recetaGenerada"></markdown>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

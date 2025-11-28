@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar class="fondo2" style="color: #fff;">
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Limpieza</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="agregar-box">
+    <ion-input
+      placeholder="Zona (ej: Baño)"
+      [(ngModel)]="nuevaZonaNombre"
+      fill="outline">
+    </ion-input>
+
+    <ion-input
+      type="number"
+      placeholder="Cada cuántos días"
+      [(ngModel)]="nuevaZonaFrecuencia"
+      fill="outline">
+    </ion-input>
+
+    <button class="btn-limpieza" expand="block" (click)="agregarZona()">
+      Añadir zona
+    </button>
+  </div>
+
+  <ion-list>
+    <ion-item *ngFor="let z of zonas"
+              [class.completada]="z.completadaHoy">
+
+      <ion-label>
+        <h2>
+          {{ z.nombre }}
+          <ion-badge style="margin-left: 10px;" *ngIf="z.completadaHoy" color="success">Hecho hoy</ion-badge>
+        </h2>
+
+        <p>Cada {{ z.frecuenciaDias }} día(s)</p>
+        <p>Próxima limpieza: {{ z.proximaFecha }}</p>
+      </ion-label>
+
+      <button  style="background: #07615c; color: #fff;" class="btn-hoy"
+        [disabled]="z.completadaHoy"
+        (click)="marcarLimpiezaHoy(z)">
+        Limpiar hoy
+      </button>
+
+    </ion-item>
+  </ion-list>
+
+  <ion-accordion-group expand="inset" class="historial-group">
+    <ion-accordion value="historial">
+      <ion-item slot="header">
+        <ion-label>Historial de limpiezas</ion-label>
+        <ion-badge style="background: #07615c;" slot="end">{{ historial.length }}</ion-badge>
+      </ion-item>
+
+      <div slot="content" class="historial-content">
+        <ion-list>
+          <ion-item *ngFor="let h of historial">
+            <ion-label>
+              <b>{{ h.zona }}</b>
+              <p>{{ h.fecha }}</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </div>
+    </ion-accordion>
+  </ion-accordion-group>
+</ion-content>
+

@@ -1,0 +1,32 @@
+<ion-buttons slot="start" style="margin-top: 40px;">
+  <ion-back-button defaultHref="/inicio"></ion-back-button>
+</ion-buttons>
+
+<ion-content fullscreen class="fondo">
+  <div class="login-container">
+    <img class="imgLogo" src="assets/logo.jpg" alt="Logo">
+    <h3 class="titulo">Regístrate</h3>
+    <div class="formulario">
+      <input type="text" 
+            placeholder="Ingresa tu usuario" 
+            [(ngModel)]="usuario" 
+            class="input-redondo">
+
+      <input type="email" 
+            placeholder="Ingresa tu email" 
+            [(ngModel)]="email" 
+            class="input-redondo">
+
+      <input type="password" 
+            placeholder="Ingresa tu contraseña" 
+            [(ngModel)]="pass" 
+            class="input-redondo">
+      
+      <button class="btn-login" (click)="registrar()">
+        Registrarse
+      </button>
+
+      <p *ngIf="mensaje">{{ mensaje }}</p>
+    </div>
+  </div>
+</ion-content>

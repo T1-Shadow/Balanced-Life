@@ -1,0 +1,29 @@
+<ion-content fullscreen class="fondo">
+  <div class="login-container">
+    <img class="imgLogo" src="assets/logo.jpg" alt="Logo">
+    <h3 class="titulo">¡Bienvenido!</h3>
+    <div class="formulario">
+
+      <input type="text"
+            placeholder="Ingresa tu usuario"
+            class="input-redondo"
+            [(ngModel)]="usuario">
+
+      <input type="password"
+            placeholder="Ingresa tu contraseña"
+            class="input-redondo"
+            [(ngModel)]="pass">
+
+      <button class="btn-login" (click)="ingresar()">
+        Ingresar
+      </button>
+
+      <p *ngIf="mensaje" class="mensaje-error">{{ mensaje }}</p>
+
+      <p class="texto-registro">
+        ¿No tienes una cuenta?
+        <a href="/registro" class="enlace-registro">Crear cuenta</a>
+      </p>
+    </div>
+  </div>
+</ion-content>

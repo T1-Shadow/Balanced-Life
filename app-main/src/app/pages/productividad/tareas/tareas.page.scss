@@ -1,0 +1,24 @@
+.agregar-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.input-tarea {
+    flex: 1;
+}
+
+.tarea-item {
+    border-radius: 12px;
+    margin-bottom: 8px;
+    --background: #f7f7f7;
+}
+
+.historial-group {
+    margin-top: 20px;
+}
+
+.historial-content {
+    padding: 10px;
+    background: #fafafa;
+}

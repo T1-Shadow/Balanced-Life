@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar class="fondo2" style="color: #fff;">
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Habitos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-input
+      [(ngModel)]="prompt"
+      placeholder="¿Qué hábito quieres desarrollar?"
+      clear-input="true">
+    </ion-input>
+  </ion-item>
+
+  <button class="btn-login" (click)="generarPlan()"> Generar rutina</button>
+
+  <ion-text *ngIf="respuesta">
+    <h3>Recomendación de la IA:</h3>
+    <div [innerHTML]="respuesta"></div>
+  </ion-text>
+</ion-content>
